@@ -8,8 +8,12 @@ public class TaskPool {
     private TaskPool(){};
 
     public static TaskPool getInstance() {
-        if(instance == null){
-            instance = new TaskPool();
+        if(instance == null) {
+            synchronized (TaskPool.class) {
+                if (instance == null) {
+                    instance = new TaskPool();
+                }
+            }
         }
         for (int i = 0; i < 5; i++) {
             Task task = new Task();
