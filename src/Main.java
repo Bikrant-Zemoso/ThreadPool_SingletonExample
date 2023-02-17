@@ -1,5 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        TaskPool obj = TaskPool.getInstance();
+        obj.execute();
+
+        TaskPool obj2 = TaskPool.getInstance();
+        obj2.execute();
     }
 }
